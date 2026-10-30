@@ -607,46 +607,45 @@ input,select,textarea{font-size:16px}
 .wb-b{display:flex;flex-direction:column;align-items:flex-start;gap:6px;margin-top:8px}.wb-b .ib{width:84px;padding:6px 10px;font-size:13px;text-align:center}
 .sp-bi .row2{gap:6px;margin-bottom:6px}.sp-bi .row2 b{font-size:15.5px}.sp-bi .row2 .go{padding:7px 13px;font-size:13.5px}.sp-bi .bar{height:6px}.sp-bi div[style]{font-size:12.5px!important;margin-top:6px!important}.sp-bi div[style*='font-weight:700']{font-size:10.5px!important;white-space:nowrap;letter-spacing:-.01em}
 @media(max-width:330px){.hub-split{grid-template-columns:1fr}}
-/* Home (desktop): Today's activity on the left, separate boxes on the right. No swipe pager. */
-.home{display:grid;grid-template-columns:minmax(340px,5fr) 7fr;gap:16px;align-items:start;margin-bottom:16px}
-.home>.glass,.home-side>.glass{margin-bottom:0;min-width:0}
-.home-act{align-self:start}
-.home-act .today .day{max-width:none;padding:6px 0 0;border:0;background:none;box-shadow:none}
-.home-side{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;align-items:stretch;min-width:0}
-.home-side .bx-verse,.home-side .bx-ql,.home-side .bx-mood,.home-side .bx-actual{grid-column:1/-1}
-.home-side .bx h2{margin:0 0 10px;font-size:14px}
-.bx-ql .ql-grid{margin-top:0;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:14px 10px}
-.bx-verse .verse{gap:14px}.bx-verse .verse .ve{font-size:30px}.bx-verse .verse>div:last-child{flex:1;min-width:0}
-.bx-mood .mood{margin-top:0;padding-top:0;border-top:0}
-.bx-water .sp-w,.bx-bible .sp-bi{margin:0}
-.bx-bible .sp-bi div[style*='font-weight:700']{white-space:normal!important;font-size:13px!important}
-.bx-actual .ti{font-size:13.5px;padding:9px 11px}.bx-actual .empty{font-size:13px}
-.hub-body,.hp,.hp-dots{display:none!important}
-@media(max-width:1000px){.home{grid-template-columns:1fr}.home-act{order:2}.home-side{order:1}}
-@media(max-width:620px){.home-side{grid-template-columns:1fr}}
-/* Quick launch: one compact row of five, bigger clickable labels */
-.bx-ql{padding:14px 10px}
-.bx-ql .ql-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:6px;margin:0;align-items:start}
-.bx-ql .ql-i{cursor:pointer;gap:6px;padding:2px 0;border-radius:12px}
-.bx-ql .ql{width:48px;height:48px}
-.bx-ql .ql-i span{font-size:13px;line-height:1.2;font-weight:600;color:var(--ink);cursor:pointer;pointer-events:auto;overflow-wrap:anywhere}
-.bx-ql .ql-i:hover span{color:var(--b)}
-/* Phone: main tabs become a vertical rail on the left */
-@media(max-width:760px){
-.wrap{padding-left:74px!important}
-#views{position:fixed;left:6px;top:calc(8px + env(safe-area-inset-top,0px));bottom:8px;width:60px;z-index:40;display:flex!important;flex-direction:column;align-items:stretch;gap:4px;padding:6px 3px;border-radius:20px;overflow-y:auto;overflow-x:hidden;max-width:none;margin:0;order:0;flex:none;scrollbar-width:none;background:var(--glass);backdrop-filter:blur(26px);-webkit-backdrop-filter:blur(26px)}
+
+/* ===== Layout update: separate boxes, vertical category bar, bigger tappable 2-2-1 quick launch ===== */
+.wrap{padding-left:88px!important}
+.top{position:static}
+#views{position:fixed!important;left:8px;top:12px;bottom:76px;z-index:60;width:72px;max-width:72px!important;flex-direction:column!important;flex-wrap:nowrap!important;align-items:stretch;gap:6px!important;padding:8px 5px!important;border-radius:26px!important;overflow-y:auto!important;overflow-x:hidden!important;order:0!important;flex:none!important;scrollbar-width:none;background:var(--glass,rgba(255,255,255,.05));border:1px solid var(--line);backdrop-filter:blur(26px) saturate(150%);-webkit-backdrop-filter:blur(26px) saturate(150%);box-shadow:0 12px 40px rgba(0,0,0,.45)}
 #views::-webkit-scrollbar{display:none}
-#views button{display:grid;justify-items:center;gap:3px;padding:8px 2px;font-size:10px;line-height:1.15;border-radius:14px;min-width:0;white-space:normal;text-align:center;flex:none}
-#views .ic{width:24px;height:24px}
-#views .ic-fx{width:40px;height:14px}
-#views .ic-desk{width:24px;height:24px}
-#db-tools{left:72px!important}
-.bx-ql .ql{width:40px;height:40px}
-.bx-ql .ql-i span{font-size:10.5px;overflow-wrap:normal;word-break:normal}
-.bx-ql{padding:12px 6px}
+#views button{flex:none;width:100%;padding:9px 2px!important;border-radius:18px!important;font-size:10.5px!important;line-height:1.15;gap:4px!important;display:flex!important;flex-direction:column;align-items:center;justify-content:center;white-space:normal!important;text-align:center;word-break:break-word}
+#views .ic{width:26px!important;height:26px!important}
+#views .ic-fx{width:46px!important;height:16px!important}
+#views .ic-desk{width:26px!important;height:26px!important}
+#views span{display:block;max-width:100%}
+@media(max-width:640px){.wrap{padding-left:80px!important;padding-right:10px!important}#views{left:5px;width:64px;max-width:64px!important;top:8px;bottom:72px}#views button{font-size:9.5px!important}}
+.hub-body{background:none!important;border:0!important;box-shadow:none!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important;padding:0!important}
+.hub-body .hp{gap:0}
+.hp-page{display:flex;flex-direction:column;gap:14px;padding:2px}
+.hbx{background:var(--glass);border:1px solid var(--line);border-radius:20px;backdrop-filter:blur(26px) saturate(150%);-webkit-backdrop-filter:blur(26px) saturate(150%);box-shadow:inset 0 1px 0 rgba(255,255,255,.14),0 14px 34px rgba(0,0,0,.45);padding:18px;box-sizing:border-box;min-width:0}
+.hbx .mood{margin-top:0;padding-top:0;border-top:0}
+.hbx .hub-split{margin-top:0;padding-top:0;border-top:0}
+.hbx-act .sp-act{margin-top:0;padding-top:0;border-top:0}
+.hp-page.hp-t,.hp-page#todayAct{padding:18px;background:var(--glass);border:1px solid var(--line);border-radius:20px}
+.hp-dots{margin-top:6px}
+.hub .ql-grid,.ql-grid{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:20px 12px!important;margin-top:0!important}
+.ql-grid .ql-i:last-child{grid-column:1/-1;justify-self:center;width:calc(50% - 6px)}
+.ql-i{cursor:pointer;padding:6px 4px;border-radius:16px;gap:8px;-webkit-tap-highlight-color:transparent}
+.ql-i:hover{background:rgba(255,255,255,.05)}
+.ql-i:active{transform:scale(.97)}
+.ql{width:64px;height:64px}
+.ql-i span{font-size:15px!important;font-weight:600;line-height:1.25!important;color:var(--ink)!important;cursor:pointer!important;pointer-events:auto!important;user-select:none}
+
+/* ===== No swiping: Today's activity sits first, right beside the category bar ===== */
+.hp{display:flex!important;flex-direction:column!important;overflow:visible!important;scroll-snap-type:none!important;gap:14px}
+.hp-page{flex:none!important;width:100%;scroll-snap-align:none!important;scroll-snap-stop:normal!important}
+.hp-page#todayAct{order:-1}
+.hp-dots{display:none!important}
+@media(min-width:1000px){
+  .hp{display:grid!important;grid-template-columns:minmax(300px,1fr) minmax(0,1.1fr);align-items:start;gap:16px}
+  .hp-page#todayAct{order:0;grid-column:1;grid-row:1}
+  .hp-page:not(#todayAct){grid-column:2;grid-row:1}
 }
-
-
 </style>
 
 
@@ -1294,12 +1293,16 @@ document.addEventListener('toggle', e => { if (e.target && e.target.matches && e
 const DDI = {};
 function ddi(id, title, body) { return `<details data-ddi="${id}" ${DDI[id] ? 'open' : ''} style="margin-top:14px"><summary style="cursor:pointer;font-weight:700;color:var(--dim)">${esc(title)}</summary><div style="margin-top:8px">${body}</div></details>`; }
 document.addEventListener('toggle', e => { const t = e.target; if (t && t.matches && t.matches('details[data-ddi]')) DDI[t.dataset.ddi] = t.open; }, true);
-document.addEventListener('click', e => { const i = e.target.closest && e.target.closest('.ql-i'); if (i && !e.target.closest('button')) { const b = i.querySelector('button.ql'); if (b) b.click(); } });
+document.addEventListener('click', e => {
+    const it = e.target.closest && e.target.closest('.ql-i');
+    if (!it || e.target.closest('.ql')) return;
+    const b = it.querySelector('.ql'); if (b) b.click();
+});
 document.addEventListener('click', e => {
     if (!e.target.closest('[data-act="today"]')) return;
     if (view !== 'dash' || anchor !== TODAY) { view = 'dash'; anchor = TODAY; render(); }
     const el = document.getElementById('todayAct');
-    if (el) { el.scrollIntoView({ behavior: 'smooth', block: 'start' }); el.setAttribute('tabindex', '-1'); el.focus({ preventScroll: true }); }
+    if (el) { el.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'start' }); el.setAttribute('tabindex', '-1'); el.focus({ preventScroll: true }); }
 });
 document.addEventListener('click', e => {
     if (e.target.closest('[data-undo]')) {
@@ -1684,7 +1687,7 @@ function dashDate(base) {
     const full = base.toLocaleDateString(undefined, { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
     return `<div class="ds"><div class="ds-top"><div class="ds-t"><span>${nameOf(diff) || (diff < 0 ? Math.abs(diff) + ' days ago' : 'In ' + diff + ' days')}</span><b>${esc(full)}</b></div><label class="ds-p" aria-label="Pick a date"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15" rx="3"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg><input type="date" id="hbDate" value="${iso(base)}"></label><button class="ds-b" data-dd="${TODAY}">Today</button></div><div class="ds-row"><button class="ds-a" data-dd="${iso(addD(base, -1))}" aria-label="Previous day">‹</button>${chips}<button class="ds-a" data-dd="${iso(addD(base, 1))}" aria-label="Next day">›</button></div></div>`;
 }
-function hub(d, actHTML, parts, actualHTML) {
+function hub(d, actHTML, splitHTML, actualHTML) {
     const ds = iso(d), m = S.mood[ds] || {}, y = d.getFullYear(), mo = d.getMonth(), nd = new Date(y, mo + 1, 0).getDate();
     const n = Math.floor((Date.UTC(y, mo, d.getDate()) - Date.UTC(y, 0, 0)) / 864e5), v = VS[(n + VOFF) % VS.length];
     const df = Math.round((d - parse(TODAY)) / 864e5), rel = df === 0 ? 'Today' : df === 1 ? 'Tomorrow' : df === -1 ? 'Yesterday' : df < 0 ? Math.abs(df) + ' days ago' : 'In ' + df + ' days';
@@ -1695,12 +1698,10 @@ function hub(d, actHTML, parts, actualHTML) {
     <div class="dial"><small>${DN[wd(d)]} · ${MN[mo].slice(0, 3)} ${y}</small><b>${d.getDate()}</b><em>${rel}</em></div>
     <div class="hub-top"><div class="hb-c"><button class="hb-n" data-dd="${iso(addD(d, -1))}" aria-label="Go to ${lab(-1)}">‹</button><span>${lab(-1)}</span></div><div class="hb-c"><button class="hb-n" data-dd="${iso(addD(d, 1))}" aria-label="Go to ${lab(1)}">›</button><span>${lab(1)}</span></div></div>
     <div class="hb-t"><label class="hb-p" aria-label="Pick a date"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15" rx="3"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg><input type="date" id="hbDate" value="${ds}"></label>${df !== 0 ? '<button class="hb-n" data-dd="' + TODAY + '">Back to today</button>' : ''}</div>
-    </section><div class="home">
-    <section class="glass home-act" id="todayAct">${actHTML || ''}</section>
-    <div class="home-side">
-    <section class="glass bx bx-verse"><div class="verse" style="border-top:0;margin-top:0;padding-top:0"><div class="ve" aria-hidden="true">${v[0]}</div><div>${verseBody(v)}</div></div></section>
-    <section class="glass bx bx-ql"><div class="ql-grid"><div class="ql-i"><button class="ql" data-act="today" aria-label="Tick habit: go to today’s activity"><i class="qg qg-tick"></i></button><span>Tick habit</span></div><div class="ql-i"><button class="ql" data-v="fs" aria-label="Open Full Stack"><i class="qg qg-fs"></i></button><span>Ctrl + Alt + Grind (404)</span></div><div class="ql-i"><button class="ql" data-v="trade" aria-label="Open Trading"><i class="qg qg-fx"></i></button><span>Pips before Trips</span></div><div class="ql-i"><button class="ql" data-v="biz" aria-label="Open Business"><i class="qg qg-biz"></i></button><span>Cluck, Moo &amp; Cash In</span></div><div class="ql-i"><button class="ql" data-v="gym" aria-label="Open Gym"><i class="qg qg-gym"></i></button><span>Voluntary Suffering Time</span></div></div></section>
-    <section class="glass bx bx-mood"><div class="mood"><div class="mo-face" id="moFace">${moodFace(mv, ev)}<div class="mo-w" id="moWord">${set ? moodWord(.65 * (mv - 1) / 4 + .35 * (ev - 1) / 4) : 'Slide to set'}</div></div><div class="mo-sl">${sl('m', 'Mood', mv)}${sl('e', 'Energy', ev)}</div></div></section>${parts.water}${parts.bible}${actualHTML || ''}</div></div>`;
+    </section><section class="glass hub hub-body">
+    <div class="hp" id="hpager"><div class="hp-page"><div class="hbx hbx-verse"><div class="verse" style="border-top:0;margin-top:0;padding-top:0"><div class="ve" aria-hidden="true">${v[0]}</div><div>${verseBody(v)}</div></div></div>
+    <div class="hbx hbx-ql"><div class="ql-grid"><div class="ql-i"><button class="ql" data-act="today" aria-label="Tick habit: go to today’s activity"><i class="qg qg-tick"></i></button><span>Tick habit</span></div><div class="ql-i"><button class="ql" data-v="fs" aria-label="Open Full Stack"><i class="qg qg-fs"></i></button><span>Ctrl + Alt + Grind (404)</span></div><div class="ql-i"><button class="ql" data-v="trade" aria-label="Open Trading"><i class="qg qg-fx"></i></button><span>Pips before Trips</span></div><div class="ql-i"><button class="ql" data-v="biz" aria-label="Open Business"><i class="qg qg-biz"></i></button><span>Cluck, Moo &amp; Cash In</span></div><div class="ql-i"><button class="ql" data-v="gym" aria-label="Open Gym"><i class="qg qg-gym"></i></button><span>Voluntary Suffering Time</span></div></div>
+    </div><div class="hbx hbx-mood"><div class="mood"><div class="mo-face" id="moFace">${moodFace(mv, ev)}<div class="mo-w" id="moWord">${set ? moodWord(.65 * (mv - 1) / 4 + .35 * (ev - 1) / 4) : 'Slide to set'}</div></div><div class="mo-sl">${sl('m', 'Mood', mv)}${sl('e', 'Energy', ev)}</div></div></div><div class="hbx hbx-split"><div class="hub-split">${splitHTML || ''}</div></div>${actualHTML ? '<div class="hbx hbx-act">' + actualHTML + '</div>' : ''}</div><div class="hp-page" id="todayAct">${actHTML || ''}</div></div></section>`;
 }
 /* Water: a 3 L bottle in 100 ml steps. Drag on the bottle like a brightness slider, or use the arrow keys / the -100 and +100 buttons. */
 function waterHTML(ds) {
@@ -1735,9 +1736,9 @@ function dash() {
     }
     const dj = daily(d).replace('<div class="tg">', '').replace('</div><!--S-->', '').split('</section>').filter(s => s.trim()).map(s => s + '</section>');
     const actHTML = `<h2>${IC('target')} ${anchor === TODAY ? 'Today’s activity' : DF[wd(d)] + '’s activity'} · planned</h2><div class="today">${cols}</div>`;
-    const bibleIn = dj[2].replace('<section class="glass">', '<div>').replace(/<\/section>\s*$/, '</div>');
-    const splitHTML = { water: `<section class="glass bx bx-water"><div class="sp-w">${waterHTML(anchor)}</div></section>`, bible: `<section class="glass bx bx-bible"><div class="sp-bi">${bibleIn}</div></section>` };
-    const actualIn = actual(d).replace('<section class="glass">', '<section class="glass bx bx-actual">');
+    const bibleIn = dj[2].replace('<section class="glass">', '<div class="sp-bi">').replace(/<\/section>\s*$/, '</div>');
+    const splitHTML = `<div class="sp-w">${waterHTML(anchor)}</div><div class="sp-b">${bibleIn}</div>`;
+    const actualIn = actual(d).replace('<section class="glass">', '<div class="sp-act">').replace(/<\/section>\s*$/, '</div>');
     return hub(d, actHTML, splitHTML, actualIn) + remind() + medRemind() + review(d);
 }
 
@@ -3612,7 +3613,7 @@ function applyTheme(i) {
 let HPX = 0, HPV = '';
 function hpSync(hp) { const i = hp.clientWidth ? Math.round(hp.scrollLeft / hp.clientWidth) : 0; document.querySelectorAll('.hp-dots button').forEach((b, k) => b.classList.toggle('on', k === i)); }
 document.addEventListener('scroll', e => { const t = e.target; if (t && t.classList && t.classList.contains('hp')) { HPX = t.scrollLeft; hpSync(t); } }, true);
-;
+document.addEventListener('click', e => { const b = e.target.closest && e.target.closest('[data-hpg]'), hp = document.getElementById('hpager'); if (b && hp) hp.scrollTo({ left: +b.dataset.hpg * hp.clientWidth, behavior: 'smooth' }); });
 function hpRestore() { if (HPV !== view) { HPX = 0; HPV = view; } const hp = document.getElementById('hpager'); if (hp) { if (HPX) hp.scrollLeft = HPX; hpSync(hp); } }
 /* Tab bars that scroll sideways keep their position when the page redraws (a tap no longer jumps them back to the first tab), and the chosen tab is kept in view. */
 const HS = '#views, #app .seg, #app .wgrid, #app .tmenu';
